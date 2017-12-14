@@ -104,7 +104,7 @@ zuul的依赖中还包含了hystrix, ribbon, actuator这些重要的依赖。
 
 具体如: `com.xuezw.gateway.filter`中的`ErrorExtFilter.java`。
 
-5、自定义核心核心过滤器，如:`com.xuezw.processor`的`ExtFilterProcessor.java`用于在异常处理中为请求上下文添加failed.filter属性。
+5、自定义核心过滤器，如:`com.xuezw.processor`的`ExtFilterProcessor.java`用于在异常处理中为请求上下文添加failed.filter属性。
 
 6、自定义异常信息，只需要我们编写一个自定义的ErrorAttributes接口实现类，并创建它的实例替代默认实现即可。具体参考：`com.xuezw.gateway.attributes`中的`MyErrorAttributes.java`实现，不将原来结果中的exception属性返回给客户端。
 
