@@ -7,8 +7,10 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.cloud.netflix.zuul.filters.discovery.PatternServiceRouteMapper;
 import org.springframework.context.annotation.Bean;
 
-import com.xuezw.gateway.attributes.DidiErrorAttributes;
+import com.netflix.zuul.FilterProcessor;
+import com.xuezw.gateway.attributes.MyErrorAttributes;
 import com.xuezw.gateway.filter.AccessFilter;
+import com.xuezw.processor.ExtFilterProcessor;
 
 //@EnableDiscoveryClient
 @EnableZuulProxy
@@ -28,7 +30,7 @@ public class ApiGatewayApplication {
 	
 	@Bean
 	public DefaultErrorAttributes errorAttributes(){
-		return new DidiErrorAttributes();
+		return new MyErrorAttributes();
 	}
 	
 	//使用@RefreshScope注解来动态更新Zuul配置内容
@@ -40,6 +42,8 @@ public class ApiGatewayApplication {
 //	}
 	
 	public static void main(String[] args) {
+		//调用自定义的核心处理器
+		FilterProcessor.setProcessor(new ExtFilterProcessor());
 		SpringApplication.run(ApiGatewayApplication.class, args);
 	}
 }

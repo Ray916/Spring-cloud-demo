@@ -10,9 +10,10 @@ import com.netflix.zuul.exception.ZuulException;
  * 主逻辑不变，但是增加了异常捕获
  * 在异常处理中为请求上下文添加了failed.filter属性
  * 以存储抛出异常的过滤器实例
+ * @2017-12-14 by xuezw
  */
 
-public class DidiFilterProcessor extends FilterProcessor {
+public class ExtFilterProcessor extends FilterProcessor {
 	
 	@Override
 	public Object processZuulFilter(ZuulFilter filter) throws ZuulException {

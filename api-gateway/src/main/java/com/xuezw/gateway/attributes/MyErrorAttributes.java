@@ -7,9 +7,10 @@ import org.springframework.web.context.request.RequestAttributes;
 
 /*
  * 自定义的ErrorAttributes接口实现类
- * 不将exception属性返回客户端*/
+ * 不将exception属性返回客户端
+ */
 
-public class DidiErrorAttributes extends DefaultErrorAttributes {
+public class MyErrorAttributes extends DefaultErrorAttributes {
 
 	@Override
 	public Map<String, Object> getErrorAttributes(
